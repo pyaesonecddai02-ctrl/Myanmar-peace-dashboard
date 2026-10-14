@@ -1,0 +1,25 @@
+{
+  "name": "myanmar-peace-api",
+  "version": "1.0.0",
+  "description": "REST API service for Myanmar Peace Process & Conflict Intelligence Platform",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "myanmar",
+    "peace-process",
+    "conflict-intelligence",
+    "railway",
+    "express"
+  ],
+  "author": "pyaesonecddai02-ctrl",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

@@ -100,14 +100,46 @@
 
 ## 🚀 စတင်အသုံးပြုပုံ (Quick Start)
 
+### 1. Frontend Web App (Local)
 ```bash
 cd app
 npm install
 npm run dev
 ```
+Browser တွင် `http://localhost:5174/` ဖြင့် ဝင်ရောက်ကြည့်ရှုနိုင်ပါသည်။
 
-Browser တွင် အောက်ပါ Link သို့ ဝင်ရောက်ကြည့်ရှုနိုင်ပါသည် -
+### 2. Backend REST API (Local)
+```bash
+cd api
+npm install
+npm run dev
 ```
-http://localhost:5174/
-```
-*(ဒေသတွင်း Local Network: `http://192.168.1.210:5174/`)*
+API သည် `http://localhost:5000/` နှင့် Health Check `http://localhost:5000/health` တွင် အလုပ်လုပ်ပါမည်။
+
+---
+
+## 🌐 Cloud Deployment (Railway + Netlify)
+
+### 🚂 ၁။ Railway တွင် Backend API တင်နည်း (Railway Deployment)
+1. **[Railway.app](https://railway.app)** သို့ သွား၍ သင်၏ GitHub Account (`pyaesonecddai02-ctrl`) ဖြင့် Sign In ဝင်ပါ။
+2. **"+ New Project"** -> **"Deploy from GitHub repo"** ကို နှိပ်ပြီး **`Myanmar-peace-dashboard`** ကို ရွေးပါ။
+3. Settings သို့ သွား၍ အောက်ပါတို့ကို သတ်မှတ်ပါ-
+   - **Root Directory**: `api`
+   - **Start Command**: `node server.js`
+4. Railway က `https://<your-project>.up.railway.app` ဆိုသော အခမဲ့ Public API URL တစ်ခု ပေးပါမည်။
+   *(စမ်းသပ်ရန်: `https://<your-project>.up.railway.app/health` သို့ ဝင်ကြည့်နိုင်ပါသည်)*
+
+---
+
+### 🌐 ၂။ Netlify တွင် Frontend App တင်နည်း (Netlify Deployment)
+1. **[Netlify.com](https://www.netlify.com)** သို့ သွား၍ GitHub Account ဖြင့် Sign In ဝင်ပါ။
+2. **"Add new site"** -> **"Import an existing project"** -> **"GitHub"** ကို ရွေးပါ။
+3. **`pyaesonecddai02-ctrl/Myanmar-peace-dashboard`** ကို ရွေးချယ်ပါ။
+4. Netlify Build Settings တွင် အောက်ပါအတိုင်း တွေ့ရပါမည် (`netlify.toml` ကြောင့် အလိုအလျောက် သတ်မှတ်ပြီးဖြစ်ပါသည်) -
+   - **Base directory**: `app`
+   - **Build command**: `npm run build`
+   - **Publish directory**: `dist` (သို့မဟုတ် `app/dist`)
+5. **Environment variables** (ရွေးချယ်နိုင်သည်):
+   - Key: `VITE_API_URL`
+   - Value: `<Railway API URL>` (ဥပမာ `https://myanmar-peace-api-production.up.railway.app`)
+6. **"Deploy site"** ကို နှိပ်လိုက်သည်နှင့် မိနစ်ပိုင်းအတွင်း Live Website Link ရရှိပါမည်!
