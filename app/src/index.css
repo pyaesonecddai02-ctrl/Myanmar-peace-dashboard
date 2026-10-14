@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Myanmar:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap');
+
+:root {
+  --font-base: 'Noto Sans Myanmar', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Noto Sans Myanmar', sans-serif;
+
+  /* Cyber Intelligence Dark Theme (Default) */
+  --bg-primary: #07090e;
+  --bg-secondary: #0d121f;
+  --bg-card: rgba(16, 23, 38, 0.85);
+  --bg-card-hover: rgba(24, 34, 56, 0.95);
+  --bg-input: rgba(13, 18, 31, 0.9);
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.6);
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+
+  --accent-blue: #38bdf8;
+  --accent-cyan: #06b6d4;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #f43f5e;
+  --accent-purple: #a855f7;
+
+  --badge-critical: rgba(239, 68, 68, 0.18);
+  --badge-critical-text: #f87171;
+  --badge-high: rgba(249, 115, 22, 0.18);
+  --badge-high-text: #fb923c;
+  --badge-moderate: rgba(234, 179, 8, 0.18);
+  --badge-moderate-text: #facc15;
+  --badge-stable: rgba(16, 185, 129, 0.18);
+  --badge-stable-text: #34d399;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 16px -2px rgba(0, 0, 0, 0.45), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 30px -4px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+html:not(.dark) {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --bg-card-hover: #ffffff;
+  --bg-input: #e2e8f0;
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.4);
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+
+  --badge-critical: rgba(239, 68, 68, 0.1);
+  --badge-critical-text: #dc2626;
+  --badge-high: rgba(249, 115, 22, 0.1);
+  --badge-high-text: #ea580c;
+  --badge-moderate: rgba(234, 179, 8, 0.15);
+  --badge-moderate-text: #ca8a04;
+  --badge-stable: rgba(16, 185, 129, 0.1);
+  --badge-stable-text: #059669;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom High-Tech Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-indigo);
+}
+
+/* Base button styling */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Link */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes glowBorder {
+  0%, 100% {
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    border-color: rgba(56, 189, 248, 0.6);
+  }
+}
+
+/* Print Styles */
+@media print {
+  header, footer, .mobile-toggle, .desktop-nav, .mobile-bottom-dock, button {
+    display: none !important;
+  }
+  body, #root {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* ===================================================
+   Mobile Responsiveness & Adaptive Viewport Styling
+   =================================================== */
+
+@media (max-width: 900px) {
+  .interactive-map-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  main {
+    padding: 14px 12px 85px !important; /* reserve room for mobile bottom dock */
+  }
+
+  /* Make sure inputs don't auto-zoom on iOS */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Footer compact padding on mobile */
+  footer {
+    padding-bottom: 85px !important;
+  }
+
+  /* Touch targets minimum height */
+  button {
+    min-height: 36px;
+  }
+
+  /* Responsive typography */
+  h1 {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  h3 {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 10px 8px 80px !important;
+  }
+
+  .printable-report {
+    padding: 16px 14px !important;
+  }
+}
